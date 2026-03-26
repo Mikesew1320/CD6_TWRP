@@ -1,17 +1,18 @@
 name: Recovery Build
 
 on:
-  workflow_dispatch:
+workflow_dispatch:
     inputs:
-      MANIFEST_URL:
-        description: 'MANIFEST_URL (if want to use SSH keys, use git@github.com:XXXXX)'
-        required: true
-        default: 'git://github.com/SHRP/platform_manifest_twrp_omni.git -b v3_10.0'
       MANIFEST_BRANCH:
-        description: 'MANIFEST_BRANCH'
+        description: 'OrangeFox Branch'
         required: true
-        default: 'PLACEHOLDER'
-      DEVICE_TREE_URL:
+        default: '12.1'
+        type: choice
+        options:
+        - 14.1
+        - 12.1
+        - 11.0
+      DEVICE_TREE:
         description: 'DEVICE_TREE_URL'
         required: true
         default: 'https://github.com/Mikesew1320/TWRP_CD6'
