@@ -6,17 +6,6 @@ on:
       MANIFEST_URL:
         description: 'MANIFEST_URL (if want to use SSH keys, use git@github.com:XXXXX)'
         required: true
-        default: 'https://gitlab.com/OrangeFox/sync.git'
-      MANIFEST_BRANCH:
-        description: 'MANIFEST_BRANCH'
-        required: true
-        default: 'fox_12.1'
-on:
-  workflow_dispatch:
-    inputs:
-      MANIFEST_URL:
-        description: 'MANIFEST_URL (if want to use SSH keys, use git@github.com:XXXXX)'
-        required: true
         default: 'https://gitlab.com/OrangeFox/Manifest.git'
       MANIFEST_BRANCH:
         description: 'MANIFEST_BRANCH'
