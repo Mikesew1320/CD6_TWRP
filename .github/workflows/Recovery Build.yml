@@ -90,7 +90,7 @@ jobs:
 
     - name: Install repo
       run: |
-        mkdir ~/bin
+        mkdirepo init -u https://gitlab.com/OrangeFox/sync.git -b fox_12.1r ~/bin
         curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
         chmod a+x ~/bin/repo
         sudo ln -sf ~/bin/repo /usr/bin/repo
@@ -103,7 +103,6 @@ jobs:
         git config --global user.name "${{ github.event.inputs.USER_NAME }}"
         git config --global user.email "${{ github.event.inputs.USER_EMAIL }}"
         repo init --depth=1 -u ${{ github.event.inputs.MANIFEST_URL }} -b ${{ github.event.inputs.MANIFEST_BRANCH }}
-        
       id: pwd
           
     - name: Repo Sync
