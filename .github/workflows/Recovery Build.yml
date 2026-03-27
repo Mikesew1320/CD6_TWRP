@@ -1,16 +1,16 @@
 name: Recovery Build
+
 on:
-workflow_dispatch:
+  workflow_dispatch:
     inputs:
-      MANIFEST_BRANCH:
-        description: 'OrangeFox Branch'
+      MANIFEST_URL:
+        description: 'MANIFEST_URL (if want to use SSH keys, use git@github.com:XXXXX)'
         required: true
-        default: '12.1'
-        type: choice
-        options:
-        - 14.1
-        - 12.1
-        - 11.0
+        default: 'https://gitlab.com/OrangeFox/Manifest.git'
+      MANIFEST_BRANCH:
+        description: 'MANIFEST_BRANCH'
+        required: true
+        default: 'fox_12.1'
       DEVICE_TREE:
         description: 'DEVICE_TREE_URL'
         required: true
