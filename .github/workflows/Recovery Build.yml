@@ -6,7 +6,7 @@ on:
       MANIFEST_URL:
         description: 'MANIFEST_URL (if want to use SSH keys, use git@github.com:XXXXX)'
         required: true
-        default: 'https://gitlab.com/OrangeFox/Manifest.git'
+        default: 'https://gitlab.com/OrangeFox/sync.git'
       MANIFEST_BRANCH:
         description: 'MANIFEST_BRANCH'
         required: true
@@ -102,7 +102,8 @@ jobs:
         echo "workspace-folder=$(pwd)" >> $GITHUB_OUTPUT
         git config --global user.name "${{ github.event.inputs.USER_NAME }}"
         git config --global user.email "${{ github.event.inputs.USER_EMAIL }}"
-        repo init --depth=1 -u ${{ github.event.inputs.MANIFEST_URL }} -b ${{ github.event.inputs.MANIFEST_BRANCH }}
+        repo init -u https://gitlab.com/OrangeFox/sync.git -b fox_12.1 repo sync -j$(nproc --all)
+        
       id: pwd
           
     - name: Repo Sync
