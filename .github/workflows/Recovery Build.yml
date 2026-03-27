@@ -90,7 +90,7 @@ jobs:
 
     - name: Install repo
       run: |
-        mkdir repo init https://gitlab.com/OrangeFox/sync.git -b fox_12.1r ~/bin
+        mkdir repo init https://gitlab.com/OrangeFox/sync.git && git switch Test fox_12.1r ~/bin
         curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
         chmod a+x ~/bin/repo
         sudo ln -sf ~/bin/repo /usr/bin/repo
