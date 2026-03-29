@@ -87,10 +87,17 @@ jobs:
       with:
           ssh-private-key: |
               ${{ secrets.SSH_PRIVATE_KEY }}
-
-    - name: Install repo
+   - name: Install repo tool
       run: |
-        mkdir repo init -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp && git switch Test twrp-12.1r ~/bin
+    mkdir -p ~/bin
+    curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+    chmod a+x ~/bin/repo
+    echo "$HOME/bin" >> $GITHUB_PATH
+  - name: Initialize repo
+       run: |
+      mkdir twrp
+      cd twrp   
+      repo init -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp -b twrp-12.1
         curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
         chmod a+x ~/bin/repo
         sudo ln -sf ~/bin/repo /usr/bin/repo
