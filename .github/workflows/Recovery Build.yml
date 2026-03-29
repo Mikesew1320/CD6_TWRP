@@ -90,7 +90,7 @@ jobs:
 
     - name: Install repo
       run: |
-        mkdir repo init -u https://gitlab.com/OrangeFox/sync.git && git switch Test fox_12.1r ~/bin
+        mkdir repo init -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp && git switch Test twrp-12.1r ~/bin
         curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
         chmod a+x ~/bin/repo
         sudo ln -sf ~/bin/repo /usr/bin/repo
